@@ -1,12 +1,9 @@
 const $ = require('jquery');
+const Backbone = require('backbone');
+const Router = require('./router');
 
 // Set jQuery in the window
 window.$ = window.jQuery = $;
 
-const app = document.querySelector('#app');
-
-// Set greeting
-const greeting = document.createElement('h2');
-greeting.innerText = 'Express Backbone Starter App!';
-
-app.appendChild(greeting);
+const router = new Router();
+Backbone.history.start();
