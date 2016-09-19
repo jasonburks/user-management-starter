@@ -2,11 +2,11 @@ const _ = require('lodash');
 const Backbone = require('backbone');
 
 const UserItemView = Backbone.View.extend({
-  el: '<li></li>',
+  el: '<li class="user"></li>',
 
   template: _.template(`
     <a href="#users/<%= user.get('_id') %>">
-      <img src="<%= user.get('image') %>" alt="Profile Pic" />
+      <img src="<%= user.get('image') %>" alt="Profile Pic" className="avatar" />
     </a>
       <div>
         <span> <%= user.get('name') %> </span>

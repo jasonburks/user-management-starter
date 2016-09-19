@@ -232,7 +232,7 @@ const UsersListView = Backbone.View.extend({
   render() {
     this.$el.find('#form').html(new UserFormView({ collection: this.collection }).render().el);
 
-    this.$el.html('');
+    this.$el.find('.user-list').html('');
 
     this.collection.each(user => {
       const view = new UserItemView({ model: user });

@@ -14,6 +14,8 @@ module.exports = {
   create(req, res, next) {
     const { name, email, bio, image, activated } = req.body;
 
+    console.log({name, email, bio, image, activated});
+
     new UserModel({ name, email, bio, image, activated }).save()
       .then(user => {
         return res.json(user);
