@@ -43,7 +43,6 @@ const UserFormView = Backbone.View.extend({
        bio: form.find('input[name="bio"]').val(),
        image: form.find('input[name="image"]').val(),
        activated: form.find('input[name="activated"]').val()
-       console.log();
      };
 
      user = new UserModel(userAttrs);

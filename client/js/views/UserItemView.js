@@ -5,12 +5,10 @@ const UserItemView = Backbone.View.extend({
   el: '<li class="user"></li>',
 
   template: _.template(`
-    <a href="#users/<%= user.get('_id') %>">
-      <img src="<%= user.get('image') %>" alt="Profile Pic" className="avatar" />
+    <a class="userLink" href="#users/<%= user.get('_id') %>">
+      <img class="avatar" src="<%= user.get('image') %>" alt="Profile Pic" />
+      <%= user.get('name') %>
     </a>
-      <div>
-        <span> <%= user.get('name') %> </span>
-      </div>
   `),
 
   render() {

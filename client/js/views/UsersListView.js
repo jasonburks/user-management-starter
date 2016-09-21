@@ -26,7 +26,7 @@ const UsersListView = Backbone.View.extend({
 
     this.collection.each(user => {
       const view = new UserItemView({ model: user });
-      this.$el.append(view.render().el);
+      this.$el.find('.user-list').append(view.render().el);
     });
 
     return this;

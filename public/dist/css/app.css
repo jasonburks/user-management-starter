@@ -3,9 +3,11 @@ body {
 
 a {
   text-decor: none;
-  color: #3B3738; }
+  color: #3B3738;
+  align-items: center;
+  display: flex; }
 
-ul {
+ul, li {
   list-style-type: none; }
 
 .avatar {
@@ -16,4 +18,19 @@ ul {
   border-radius: 30px;
   /* Opera 10.5, IE 9 */
   /*-moz-border-radius: 30px;  Disabled for FF1+ */
-  border: 1px #3B3738 solid; }
+  border: 1px #3B3738 solid;
+  margin-right: 5px; }
+
+.avatar-large {
+  width: 200px;
+  height: 200px;
+  -webkit-border-radius: 120px;
+  /* Saf3+, Chrome */
+  border-radius: 120px;
+  /* Opera 10.5, IE 9 */
+  /*-moz-border-radius: 30px;  Disabled for FF1+ */
+  border: 1px #3B3738 solid;
+  margin-right: 5px; }
+
+.hidden {
+  display: none; }
