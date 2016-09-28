@@ -34,3 +34,6 @@ ul, li {
 
 .hidden {
   display: none; }
+
+.deactivated {
+  text-decoration: line-through; }

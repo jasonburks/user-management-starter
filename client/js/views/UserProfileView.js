@@ -6,7 +6,7 @@ const UserProfileView = Backbone.View.extend({
 
   template: _.template(`
     <div>
-      <button>Back</button>
+      <button id="back-button">Back</button>
     </div>
       <img class="avatar-large hidable" src="<%= user.get('image') %>" alt="Profile Pic" />
       <label class="hidable hidden">Image:</label>
@@ -38,7 +38,12 @@ const UserProfileView = Backbone.View.extend({
   events: {
     'click input[type="checkbox"]' : 'handleCheckBoxClick',
     'click button[name="edit"]' : 'handleEditClick',
-    'submit': 'handleFormSubmit'
+    'click button[id="back-button"]' : 'handleBackButtonClick',
+    'click button[type="submit"]' : 'handleFormSubmit',
+  },
+
+  handleBackButtonClick(e) {
+    Backbone.history.history.back();
   },
 
   handleCheckBoxClick(e) {
@@ -46,25 +51,22 @@ const UserProfileView = Backbone.View.extend({
   },
 
   handleEditClick(e) {
-    var el = document.getElementsByClassName('hidable');
-    el.style.display = (el.style.display != 'hidden' ? 'hidden' : '' );
+    this.$el.find('.hidable').toggleClass('hidden');
   },
 
 
   handleFormSubmit(e) {
-    const form = $(e.target);
-
+    e.preventDefault();
     this.model.save({
-      name: form.find('input[name="name"]').val(),
-      email: form.find('input[name="email"]').val(),
-      bio: form.find('input[name="bio"]').val(),
-      img: form.find('input[name="img"]').val(),
+      name: this.$('input[name="name"]').val(),
+      email: this.$('input[name="email"]').val(),
+      bio: this.$('input[name="bio"]').val(),
+      img: this.$('input[name="img"]').val(),
     }, {
       success: () => {
-        form.find('input[type="text"]').val('');
+        this.$('input[type="text"]').val('');
       }
     });
-    e.preventDefault();
   },
 
   initialize() {

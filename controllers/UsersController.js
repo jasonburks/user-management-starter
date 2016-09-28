@@ -39,7 +39,7 @@ module.exports = {
 
       user.save((err, user) => {
           console.log('Error: ', err)
-          res.redirect('/users');
+          res.json(user);
       });
     });
   },

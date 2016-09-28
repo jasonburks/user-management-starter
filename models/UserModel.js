@@ -23,7 +23,8 @@ const userSchema = mongoose.Schema({
 
     activated: {
       type: Boolean,
-      required: true
+      required: true,
+      default: true
     }
 });
 
